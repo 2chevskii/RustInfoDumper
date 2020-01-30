@@ -2,3 +2,7 @@
 	path = DepotDownloader
 	url = https://github.com/SteamRE/DepotDownloader.git
 	branch = master
+[submodule "Il2CppDumper"]
+	path = Il2CppDumper
+	url = https://github.com/Perfare/Il2CppDumper.git
+	branch = master
