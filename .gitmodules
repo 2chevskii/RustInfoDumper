@@ -1,0 +1,4 @@
+[submodule "DepotDownloader"]
+	path = DepotDownloader
+	url = https://github.com/SteamRE/DepotDownloader.git
+	branch = master
