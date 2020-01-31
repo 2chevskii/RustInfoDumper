@@ -1,3 +1,5 @@
 dump/server/
 dump/client/
 dump/client_old/
+.vscode/
+tools/

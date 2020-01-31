@@ -9,7 +9,8 @@
             "files": "./filelists/.managed-libs",
             "login": [
                 "anonymous"
-            ]
+            ],
+            "out_dir": "./dump/server"
         },
         "ClientManaged": {
             "app_id": 252490,
@@ -19,7 +20,8 @@
             "login": [
                 "username",
                 "password"
-            ]
+            ],
+            "out_dir": "./dump/client/managed"
         },
         "ClientMedia": {
             "app_id": 252490,
@@ -29,7 +31,8 @@
             "login": [
                 "username",
                 "password"
-            ]
+            ],
+            "out_dir": "./dump/client/media"
         },
         "ClientUnmanaged": {
             "app_id": 252490,
@@ -39,13 +42,15 @@
             "login": [
                 "username",
                 "password"
-            ]
+            ],
+            "out_dir": "./dump/client/unmanaged"
         }
     },
     "cpp2il_scenarios": {
         "Client": {
             "global-metadata": "./dump/client/RustClient_Data/il2cpp_data/Metadata/global-metadata.dat",
-            "GameAssembly": "./dump/client/GameAssembly.dll"
+            "GameAssembly": "./dump/client/GameAssembly.dll",
+            "out-dir": "./cpp2il"
         }
     }
 }
