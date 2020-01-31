@@ -34,7 +34,7 @@ if (!(Get-Command "nuget" -ErrorAction SilentlyContinue) -and $IL2CPPDumper) {
     exit 1
 }
 
-&git.exe submodule init .
+&git.exe submodule update --init
 
 if (!(Test-Path -Path "$PSScriptRoot/DepotDownloader") -and $DepotDownloader) {
     Write-Error 'Could not find DepotDownloader repo, exiting'
