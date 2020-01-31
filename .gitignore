@@ -1,5 +1,5 @@
-dump/server/
-dump/client/
-dump/client_old/
+dump/*
+!dump/immutable/
 .vscode/
 tools/
+DepotDownloader.config
