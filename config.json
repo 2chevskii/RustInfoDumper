@@ -44,6 +44,26 @@
                 "password"
             ],
             "out_dir": "./dump/client/unmanaged"
+        },
+        "ServerCommon": {
+            "app_id": 258550,
+            "depot_id": 258554,
+            "manifest_id": null,
+            "files": "./filelists/.full",
+            "login": [
+                "anonymous"
+            ],
+            "out_dir": "./dump/server"
+        },
+        "ServerWin64": {
+            "app_id": 258550,
+            "depot_id": 258551,
+            "manifest_id": null,
+            "files": "./filelists/.full",
+            "login": [
+                "anonymous"
+            ],
+            "out_dir": "./dump/server"
         }
     },
     "cpp2il_scenarios": {
