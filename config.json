@@ -1,0 +1,51 @@
+{
+    "depotdownloader": "./tools/depotdownloader/DepotDownloader.dll",
+    "il2cppdumper": "./tools/il2cppdumper/Il2CppDumper.exe",
+    "depot_scenarios": {
+        "ServerManaged": {
+            "app_id": 258550,
+            "depot_id": 258551,
+            "manifest_id": null,
+            "files": "./filelists/.managed-libs",
+            "login": [
+                "anonymous"
+            ]
+        },
+        "ClientManaged": {
+            "app_id": 252490,
+            "depot_id": 252495,
+            "manifest_id": 1279033404738229462,
+            "files": "./filelists/.managed-libs",
+            "login": [
+                "username",
+                "password"
+            ]
+        },
+        "ClientMedia": {
+            "app_id": 252490,
+            "depot_id": 252494,
+            "manifest_id": null,
+            "files": "./filelists/.media",
+            "login": [
+                "username",
+                "password"
+            ]
+        },
+        "ClientUnmanaged": {
+            "app_id": 252490,
+            "depot_id": 252495,
+            "manifest_id": null,
+            "files": "./filelists/.unmanaged-libs",
+            "login": [
+                "username",
+                "password"
+            ]
+        }
+    },
+    "cpp2il_scenarios": {
+        "Client": {
+            "global-metadata": "./dump/client/RustClient_Data/il2cpp_data/Metadata/global-metadata.dat",
+            "GameAssembly": "./dump/client/GameAssembly.dll"
+        }
+    }
+}
