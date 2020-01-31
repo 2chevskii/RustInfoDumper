@@ -3,6 +3,11 @@ param (
     [switch]$IL2CPPDumper
 )
 
+if ((Get-Host).Version.Major -lt 6) {
+    Write-Error "This script is only available for PowerShell Core (version >= 6.0.0)"
+    exit 1
+}
+
 if (!$DepotDownloader -and !$IL2CPPDumper) {
     $DepotDownloader = $IL2CPPDumper = $true
 }
