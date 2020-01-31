@@ -11,13 +11,13 @@ if ($Scenarios.Length -lt 1) {
 
 [hashtable[]]$depot_scen = $config.depot_scenarios
 
-if (!(Test-Path -Path $config.depotdownloader)) {
-    Write-Error "Could not locate DepotDownloader binary. Make sure right path is specified in the config"
+if (!$config) {
+    Write-Error "No configuration file found. Make sure it's located at $PSScriptRoot/config.json and restart the script"
     exit 1
 }
 
-if (!$config) {
-    Write-Error "No configuration file found. Make sure it's located at $PSScriptRoot/config.json and restart the script"
+if (!(Test-Path -Path $config.depotdownloader)) {
+    Write-Error "Could not locate DepotDownloader binary. Make sure right path is specified in the config"
     exit 1
 }
 
