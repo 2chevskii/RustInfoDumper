@@ -1,5 +1,6 @@
 dump/*
 !dump/immutable/
+cpp2il/
 .vscode/
 tools/
 DepotDownloader.config
