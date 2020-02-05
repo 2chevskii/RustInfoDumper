@@ -75,7 +75,7 @@
         }
     },
     "rustinfodump": {
-        "server-dir": "./data/server/full",
-        "out-dir": "./dump/json"
+        "server-dir": "data/server/full",
+        "out-dir": "dump/json"
     }
 }
