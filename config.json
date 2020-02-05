@@ -74,5 +74,8 @@
             "UnityVersion": "2019.2.0f1"
         }
     },
-    "rustinfodump": "./dump/json"
+    "rustinfodump": {
+        "server-dir": "./data/server/full",
+        "out-dir": "./dump/json"
+    }
 }
