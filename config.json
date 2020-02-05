@@ -10,7 +10,7 @@
             "login": [
                 "anonymous"
             ],
-            "out_dir": "./dump/server"
+            "out_dir": "./data/server/managed"
         },
         "ClientManaged": {
             "app_id": 252490,
@@ -21,7 +21,7 @@
                 "username",
                 "password"
             ],
-            "out_dir": "./dump/client/managed"
+            "out_dir": "./data/client/managed"
         },
         "ClientMedia": {
             "app_id": 252490,
@@ -32,18 +32,18 @@
                 "username",
                 "password"
             ],
-            "out_dir": "./dump/client/media"
+            "out_dir": "./data/client/media"
         },
-        "ClientUnmanaged": {
+        "ClientNative": {
             "app_id": 252490,
             "depot_id": 252495,
             "manifest_id": null,
-            "files": "./filelists/.unmanaged-libs",
+            "files": "./filelists/.native-libs",
             "login": [
                 "username",
                 "password"
             ],
-            "out_dir": "./dump/client/unmanaged"
+            "out_dir": "./data/client/native"
         },
         "ServerCommon": {
             "app_id": 258550,
@@ -53,7 +53,7 @@
             "login": [
                 "anonymous"
             ],
-            "out_dir": "./dump/server"
+            "out_dir": "./data/server/full"
         },
         "ServerWin64": {
             "app_id": 258550,
@@ -63,14 +63,14 @@
             "login": [
                 "anonymous"
             ],
-            "out_dir": "./dump/server"
+            "out_dir": "./data/server/full"
         }
     },
     "cpp2il_scenarios": {
         "Client": {
-            "global-metadata": "dump/client/global-metadata.dat",
-            "GameAssembly": "dump/client/GameAssembly.dll",
-            "out-dir": "cpp2il",
+            "global-metadata": "data/client/native/RustClient_Data/il2cpp_data/Metadata/global-metadata.dat",
+            "GameAssembly": "data/client/native/GameAssembly.dll",
+            "out-dir": "dump/client/cpp2il",
             "UnityVersion": "2019.2.0f1"
         }
     }
