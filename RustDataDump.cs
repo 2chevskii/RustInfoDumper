@@ -99,7 +99,7 @@ namespace Oxide.Plugins
 				layers
 			});
 
-			LogToFile("rustdatadump_" + DateTime.Now.ToString("dd-MM-yyyy_hh-mm"), json, this, false);
+			LogToFile(DateTime.Now.ToString("dd-MM-yyyy_hh-mm"), json, this, false);
 
 			Puts("Data saved, exiting...");
 		}
