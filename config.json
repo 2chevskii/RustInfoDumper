@@ -73,5 +73,6 @@
             "out-dir": "./dump/client/cpp2il",
             "UnityVersion": "2019.2.0f1"
         }
-    }
+    },
+    "rustinfodump": "./dump/json"
 }
