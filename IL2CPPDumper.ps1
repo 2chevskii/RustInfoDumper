@@ -3,11 +3,11 @@ param (
 )
 
 if ($Scenarios.Length -lt 1) {
-    Write-Warning "No scenarios passed, exiting"
+    Write-Warning 'No scenarios passed, exiting'
     exit 0
 }
 
-[hashtable]$config = Get-Content -Path "./config.json" -Raw | ConvertFrom-Json -AsHashtable
+[hashtable]$config = Get-Content -Path './config.json' -Raw | ConvertFrom-Json -AsHashtable
 
 [hashtable[]]$il2cpp_scen = $config.cpp2il_scenarios
 
@@ -17,12 +17,12 @@ if (!$config) {
 }
 
 if (!(Test-Path -Path $config.il2cppdumper)) {
-    Write-Error "Could not locate IL2CPPDumper binary. Make sure right path is specified in the config"
+    Write-Error 'Could not locate IL2CPPDumper binary. Make sure right path is specified in the config'
     exit 1
 }
 
 if (!$il2cpp_scen -or $il2cpp_scen.Length -lt 1) {
-    Write-Error "No scenarios found in the config file"
+    Write-Error 'No scenarios found in the config file'
     exit 1
 }
 
@@ -36,7 +36,7 @@ function Invoke-IL2CPPDumper {
     )
 
     if (!$exe -or !$meta -or !$unity -or !$mode) {
-        throw "INVALID_ARGS"
+        throw 'INVALID_ARGS'
     }
 
     $cpp2il_bin = $config.il2cppdumper
@@ -64,8 +64,6 @@ foreach ($scen in $Scenarios) {
 
     try {
         Invoke-IL2CPPDumper -exe $arg.GameAssembly -meta $arg['global-metadata'] -out_dir $arg['out-dir']
-
-        # Write-Output "'$scen' completed successfully"
     }
     catch {
         Write-Warning "Scenario '$scen' failed to execute:"
@@ -73,7 +71,8 @@ foreach ($scen in $Scenarios) {
     }
 }
 
-Start-Sleep -Seconds 20
+# IL2CPPDumper waits for a key to be pressed, so we should just exit this way...
+Start-Sleep -Seconds 20 
 
 Get-Process Il2CppDumper -OutVariable dumpers -ErrorAction SilentlyContinue
 if (!$dumpers -or $dumpers.Length -lt 1) {

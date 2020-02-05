@@ -3,11 +3,11 @@ param (
 )
 
 if ($Scenarios.Length -lt 1) {
-    Write-Warning "No scenarios passed, exiting"
+    Write-Warning 'No scenarios passed, exiting'
     exit 0
 }
 
-[hashtable]$config = Get-Content -Path "./config.json" -Raw | ConvertFrom-Json -AsHashtable
+[hashtable]$config = Get-Content -Path './config.json' -Raw | ConvertFrom-Json -AsHashtable
 
 [hashtable[]]$depot_scen = $config.depot_scenarios
 
@@ -17,12 +17,12 @@ if (!$config) {
 }
 
 if (!(Test-Path -Path $config.depotdownloader)) {
-    Write-Error "Could not locate DepotDownloader binary. Make sure right path is specified in the config"
+    Write-Error 'Could not locate DepotDownloader binary. Make sure right path is specified in the config'
     exit 1
 }
 
 if (!$depot_scen -or $depot_scen.Length -lt 1) {
-    Write-Error "No scenarios found in the config file"
+    Write-Error 'No scenarios found in the config file'
     exit 1
 }
 
@@ -37,7 +37,7 @@ function Invoke-DepotDownloader {
     )
 
     if (!$app_id) {
-        throw "APP_ID_UNDEFINED"
+        throw 'APP_ID_UNDEFINED'
     }
 
     $depot_bin = $config.depotdownloader
@@ -56,7 +56,7 @@ function Invoke-DepotDownloader {
         $arguments += " -filelist $filelist"
     }
 
-    if ($login -and $login[0] -ne "anonymous") {
+    if ($login -and $login[0] -ne 'anonymous') {
         $arguments += " -username $($login[0]) -password $($login[1])"
     }
 

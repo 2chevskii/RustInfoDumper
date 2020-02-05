@@ -4,7 +4,7 @@ param (
 )
 
 if ((Get-Host).Version.Major -lt 6) {
-    Write-Error "This script is only available for PowerShell Core (version >= 6.0.0)"
+    Write-Error 'This script is only available for PowerShell Core (version >= 6.0.0)'
     exit 1
 }
 
@@ -12,49 +12,54 @@ if (!$DepotDownloader -and !$IL2CPPDumper) {
     $DepotDownloader = $IL2CPPDumper = $true
 }
 
-if (!(Test-Path -Path "./config.json")) {
+if ($IL2CPPDumper -and !$IsWindows) {
+    Write-Warning 'IL2CPPDumper build requested on non-windows platform, it will be skipped!'
+    $IL2CPPDumper = $false
+}
+
+if (!(Test-Path -Path './config.json')) {
     Write-Error "Could not find configuration file. Make sure it exists at '$PSScriptRoot/config.json' and try again"
     exit 1
 }
 
-$config = Get-Content "./config.json" -Raw | ConvertFrom-Json -AsHashtable
+$config = Get-Content './config.json' -Raw | ConvertFrom-Json -AsHashtable
 
 if (($DepotDownloader -and !$config.depotdownloader) -or ($IL2CPPDumper -and !$config.il2cppdumper)) {
     Write-Error 'Could not parse configuration correctly, exiting'
     exit 1
 }
 
-if (!(Get-Command "git" -ErrorAction SilentlyContinue)) {
-    Write-Error 'Could not find Git in path, exiting'
+if (!(Get-Command 'git' -ErrorAction SilentlyContinue)) {
+    Write-Error 'Could not find Git in PATH, exiting'
     exit 1
 }
 
-if (!(Get-Command "dotnet" -ErrorAction SilentlyContinue)) {
-    Write-Error 'Could not find dotnet in path, exiting'
+if (!(Get-Command 'dotnet' -ErrorAction SilentlyContinue)) {
+    Write-Error 'Could not find dotnet in PATH, exiting'
     exit 1
 }
 
-if (!(Get-Command "nuget" -ErrorAction SilentlyContinue) -and $IL2CPPDumper) {
-    Write-Error "Could not find nuget in path, it's required to build IL2CPPDumper, exiting"
+if (!(Get-Command 'nuget' -ErrorAction SilentlyContinue) -and $IL2CPPDumper) {
+    Write-Error "Could not find nuget in PATH, it's required to build IL2CPPDumper, exiting"
     exit 1
 }
 
 &git.exe submodule update --init
 
 if (!(Test-Path -Path "$PSScriptRoot/DepotDownloader") -and $DepotDownloader) {
-    Write-Error 'Could not find DepotDownloader repo, exiting'
+    Write-Error 'Could not find DepotDownloader repository, exiting'
     exit 1
 }
 
 if (!(Test-Path -Path "$PSScriptRoot/Il2CppDumper") -and $IL2CPPDumper) {
-    Write-Error 'Could not find Il2CppDumper repo, exiting'
+    Write-Error 'Could not find Il2CppDumper repository, exiting'
     exit 1
 }
 
 if ($DepotDownloader) {
-    Write-Host "Started build of DepotDownloader..." -ForegroundColor Gray
+    Write-Host 'Started build of DepotDownloader...' -ForegroundColor Gray
 
-    Write-Host "Restoring dependencies..."
+    Write-Host 'Restoring dependencies...'
 
     $out = Split-Path $config.depotdownloader -Parent
 
@@ -62,7 +67,7 @@ if ($DepotDownloader) {
 
     &dotnet.exe restore './DepotDownloader' | Out-Null
 
-    Write-Host "Building project..." -NoNewline
+    Write-Host 'Building project...' -NoNewline
 
     &dotnet.exe build './DepotDownloader' -o $out | Out-Null
 
@@ -70,7 +75,7 @@ if ($DepotDownloader) {
 }
 
 if ($IL2CPPDumper) {
-    Write-Host "Started build of IL2CPPDumper..." -ForegroundColor Gray
+    Write-Host 'Started build of IL2CPPDumper...' -ForegroundColor Gray
 
     Write-Host 'Restoring dependencies...'
 

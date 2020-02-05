@@ -68,9 +68,9 @@
     },
     "cpp2il_scenarios": {
         "Client": {
-            "global-metadata": "data/client/native/RustClient_Data/il2cpp_data/Metadata/global-metadata.dat",
-            "GameAssembly": "data/client/native/GameAssembly.dll",
-            "out-dir": "dump/client/cpp2il",
+            "global-metadata": "./data/client/native/RustClient_Data/il2cpp_data/Metadata/global-metadata.dat",
+            "GameAssembly": "./data/client/native/GameAssembly.dll",
+            "out-dir": "./dump/client/cpp2il",
             "UnityVersion": "2019.2.0f1"
         }
     },
