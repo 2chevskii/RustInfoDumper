@@ -4,3 +4,4 @@ cpp2il/
 .vscode/
 tools/
 DepotDownloader.config
+data/
