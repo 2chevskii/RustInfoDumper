@@ -64,8 +64,6 @@ foreach ($scen in $Scenarios) {
 
     try {
         Invoke-IL2CPPDumper -exe $arg.GameAssembly -meta $arg['global-metadata'] -out_dir $arg['out-dir']
-
-        # Write-Output "'$scen' completed successfully"
     }
     catch {
         Write-Warning "Scenario '$scen' failed to execute:"
@@ -73,7 +71,8 @@ foreach ($scen in $Scenarios) {
     }
 }
 
-Start-Sleep -Seconds 20
+# IL2CPPDumper waits for a key to be pressed, so we should just exit this way...
+Start-Sleep -Seconds 20 
 
 Get-Process Il2CppDumper -OutVariable dumpers -ErrorAction SilentlyContinue
 if (!$dumpers -or $dumpers.Length -lt 1) {
