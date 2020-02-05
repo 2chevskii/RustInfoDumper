@@ -1,5 +1,6 @@
 dump/*
 !dump/immutable/
+!dump/latest/
 cpp2il/
 .vscode/
 tools/
