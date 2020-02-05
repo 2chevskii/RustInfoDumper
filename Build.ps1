@@ -17,11 +17,6 @@ if ($IL2CPPDumper -and !$IsWindows) {
     $IL2CPPDumper = $false
 }
 
-if (!$DepotDownloader -and !$IL2CPPDumper) {
-    Write-Warning 'No builds left requested, exiting'
-    exit 0
-}
-
 if (!(Test-Path -Path './config.json')) {
     Write-Error "Could not find configuration file. Make sure it exists at '$PSScriptRoot/config.json' and try again"
     exit 1
