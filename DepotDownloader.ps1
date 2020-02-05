@@ -56,7 +56,7 @@ function Invoke-DepotDownloader {
         $arguments += " -filelist $filelist"
     }
 
-    if ($login -and $login[0] -ne "anonymous") {
+    if ($login -and $login[0] -ne 'anonymous') {
         $arguments += " -username $($login[0]) -password $($login[1])"
     }
 
